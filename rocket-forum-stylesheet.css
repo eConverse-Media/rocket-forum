@@ -105,13 +105,15 @@ h2, .h2 {
     color: #333;
 }
 .HLLandingControl h2,
-.HLLandingControl .heading h2 {
+.HLLandingControl .heading h2,
+.small-h2 h2 {
     font-weight: 600;
     font-size: 16px;
     line-height: 1.1875;
     color: #212942;
     letter-spacing: 2px;
     text-transform: uppercase;
+    margin-bottom: 15px;
 }
 h3, .h3 {
     font-weight: 700;
@@ -122,11 +124,19 @@ h3, .h3 {
 h3 a,
 .HLLandingControl h3 a {
     color: #017F75;
+    font-size: 18px;
+    line-height: 24px;
 }
 h3 a:hover,
 h3 a:focus,
 .HLLandingControl h3 a:hover,
-.HLLandingControl h3 a:focus {
+.HLLandingControl h3 a:focus,
+.blogs ul li h3 a:hover,
+.blogs ul li h3 a:focus,
+.upcoming-events ul li h3 a:hover,
+.upcoming-events ul li h3 a:focus,
+.announcement-slide h3 a:hover,
+.announcement-slide h3 a:focus {
     color: #212942;
     text-decoration: underline;
 }
@@ -186,6 +196,8 @@ input:focus {
 .make-buttons em a {
     display: inline-block;
     margin: 5px;
+    font-style: normal;
+    text-decoration: none;
 }
 .make-buttons em a,
 .btn {
@@ -198,6 +210,13 @@ input:focus {
 }
 .make-buttons.large em a {
     padding: 12px 20px;
+}
+.make-buttons.small em a,
+.btn.btn-sm {
+    padding: 5px 10px;
+}
+.btn.btn-xs {
+    padding: 2px 5px;
 }
 .make-buttons em a,
 .btn-primary,
@@ -217,7 +236,8 @@ input:focus {
 .btn-info.disabled, .btn-info[disabled], fieldset[disabled] .btn-info, .btn-info.disabled:hover, .btn-info[disabled]:hover, fieldset[disabled] .btn-info:hover, .btn-info.disabled:focus, .btn-info[disabled]:focus, fieldset[disabled] .btn-info:focus, .btn-info.disabled:active, .btn-info[disabled]:active, fieldset[disabled] .btn-info:active, .btn-info.disabled.active, .btn-info[disabled].active, fieldset[disabled] .btn-info.active,
 .btn-success.disabled, .btn-success[disabled], fieldset[disabled] .btn-success, .btn-success.disabled:hover, .btn-success[disabled]:hover, fieldset[disabled] .btn-success:hover, .btn-success.disabled:focus, .btn-success[disabled]:focus, fieldset[disabled] .btn-success:focus, .btn-success.disabled:active, .btn-success[disabled]:active, fieldset[disabled] .btn-success:active, .btn-success.disabled.active, .btn-success[disabled].active, fieldset[disabled] .btn-success.active,
 .alert-warning .btn,
-.alert-warning .btn-group > .btn.dropdown-toggle:first-child {
+.alert-warning .btn-group > .btn.dropdown-toggle:first-child,
+.HLLandingControl .btn-default {
     color: #fff;
     background: #389CBE;
     border-color: #389CBE;
@@ -259,7 +279,9 @@ input:focus {
 .alert-warning .btn:active,
 .alert-warning .btn-group > .btn.dropdown-toggle:first-child:focus,
 .alert-warning .btn-group > .btn.dropdown-toggle:first-child:hover,
-.alert-warning .btn-group > .btn.dropdown-toggle:first-child:active {
+.alert-warning .btn-group > .btn.dropdown-toggle:first-child:active,
+.HLLandingControl .btn-default:hover,
+.HLLandingControl .btn-default:focus {
     color: #fff;
     background: #2B84A2;
     border-color: #2B84A2;
@@ -285,6 +307,10 @@ input:focus {
 .make-buttons.white em a:focus {
     color: #EFEFEF;
     border-color: #EFEFEF;
+}
+.HLLandingControl div[id*="BottomLink"] .col-md-12,
+.HLLandingControl div[id*="More"] .col-md-12 {
+    padding: 0;
 }
 
 /****** round profile images ******/
@@ -596,6 +622,404 @@ font-style: normal;
     color: #017f75;
 }
 
+/************ widgets ************/
+.ContentUserControl .HLLandingControl, .ContentUserControl.HLLandingControl, .ContentItemHtml .HLLandingControl, .ContentItemHtml.HLLandingControl,
+.HLLandingControl .Content, .HLLandingControl .HtmlContent {
+    padding: 0;
+    border: none;
+}
+.HLDiscussions ul,
+.SearchResults ul,
+.HLEngagement ul {
+    margin-bottom: 5px;
+    padding-top: 0;
+}
+.HLDiscussions ul li,
+.SearchResults ul li {
+    padding: 16px 22px 65px 35px;
+    position: relative;
+    border-radius: 3px;
+    border: 1px solid #F2F2F2;
+    margin-bottom: 15px;
+}
+.HLDiscussions ul li::before,
+.SearchResults ul li::before {
+    content: '';
+    position: absolute;
+    border-left: 3px solid #f2f2f2;
+    top: 16px;
+    bottom: 35px;
+    left: 20px;
+}
+.HLDiscussions ul li .title-row h3,
+.SearchResults ul li .title-row h3 {
+    margin-bottom: 10px;
+}
+.HLDiscussions ul li .title-row .col-md-2,
+.SearchResults ul li .title-row .col-md-2 {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    background: #F2F2F2;
+    border-radius: 40px;
+    padding: 3px 12px 3px 43px !important;
+}
+.HLDiscussions ul li .title-row .col-md-2 a[id*="lnkDisplay"],
+.SearchResults ul li .title-row .col-md-2 a[id*="lnkDisplay"],
+.blogs ul li .title-row .col-md-2 a[id*="lnkDisplay"] {
+    border: 3px solid #f2f2f2;
+    position: absolute;
+    bottom: -3px;
+    left: -3px;
+    height: 41px;
+    width: 41px;
+}
+.HLDiscussions ul li .title-row .col-md-10,
+.SearchResults ul li .title-row .col-md-7,
+.blogs ul li .title-row .col-md-10 {
+    padding: 0;
+    width: 100%;
+}
+.SearchResults ul li .title-row .col-md-3 {
+    display: none;
+}
+.HLDiscussions ul li .content-row .col-md-12,
+.SearchResults ul li div[id*="FoundIn"] .col-md-12,
+.SearchResults ul li .title-row .col-md-12 {
+    position: static;
+}
+.HLDiscussions ul li h5,
+.SearchResults ul li h5 {
+    position: absolute;
+    right: 25px;
+    bottom: 15px;
+    margin: 0;
+    font-size: 0;
+}
+
+.HLDiscussions ul li h5 a,
+.SearchResults ul li h5 a {
+    color: #8846AC;
+    font-size: 10px;
+    line-height: 1.8;
+    display: inline-block;
+    background: white;
+    border-radius: 100px;
+    padding: 2px 8px;
+    border: 1px solid #8846AC;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.HLDiscussions ul li h5 a:hover,
+.HLDiscussions ul li h5 a:focus,
+.SearchResults ul li h5 a:hover,
+.SearchResults ul li h5 a:focus {
+    background: #8846ac;
+    color: #fff;
+}
+
+/*** tabbed widgets ***/
+
+.tabs-list {
+    border-bottom: 7px solid #212942;
+    position: relative;
+}
+.tabs-list::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 7px 7px 0 0;
+    border-color: #ffffff transparent transparent transparent;
+}
+.tabs-list::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -7px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 7px 7px;
+    border-color: transparent transparent #ffffff transparent;
+}
+.tabs-list button {
+    font-weight: 700;
+    color: #212942;
+    font-size: 18px;
+    line-height: 24px;
+    padding: 6px 18px;
+    border-radius: 3px;
+    background: transparent;
+    border: none;
+    margin-bottom: 7px;
+    margin-right: 7px;
+}
+.tabs-list button:hover,
+.tabs-list button:focus,
+.tabs-list button.active {
+    background: #F2F2F2;
+}
+.tabs-list {
+    margin-bottom: 20px;
+}
+.tabbed-widgets h2 {
+    display: none;
+}
+.tabbed-widgets {
+    margin-bottom: 65px;
+}
+
+/****** announcements ******/
+
+.announcement-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+.announcement-title h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.announcement-slider.slick-slider.slick-dotted {
+    margin-bottom: 55px;
+    padding-bottom: 40px;
+}
+.announcement-slider .slick-list {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.announcement-slider .slick-track {
+    display: flex;
+}
+.announcement-slide.slick-slide {
+    height: auto;
+    border: 1px solid #017F75;
+    border-radius: 3px;
+    padding: 25px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.announcement-slide h3 {
+    margin-top: 0;
+}
+.announcement-slide h3 a {
+    color: #333;
+}
+.announcement-slide p:last-child {
+    margin-bottom: 0;
+    color: #7A808F;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+/*** arrows ***/
+.announcement-slider .slick-arrow {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: #389CBE;
+    font-size: 24px;
+    line-height: 1;
+    z-index: 10;
+    position: absolute;
+    bottom: 0;
+}
+.announcement-slider .slick-arrow.prev-arrow {
+    left: 15px;
+}
+.announcement-slider .slick-arrow.next-arrow {
+    right: 15px;
+}
+
+/*** dots ***/
+.announcement-slider ul.slick-dots {
+    bottom: 0;
+}
+.announcement-slider ul.slick-dots li button {
+    display: none;
+}
+.announcement-slider ul.slick-dots li {
+    width: 7px;
+    height: 7px;
+    background: #389CBE;
+    opacity: 0.5;
+    border-radius: 50%;
+    margin: 1px 7px;
+}
+.announcement-slider ul.slick-dots li.slick-active {
+    width: 10px;
+    height: 10px;
+    opacity: 1;
+    margin: 0 7px;
+}
+
+/****** upcoming events ******/
+
+.upcoming-events .Content ul li {
+    border-bottom: none;
+    padding: 25px;
+    margin-bottom: 15px;
+}
+.upcoming-events div[id*="BottomLink"] {
+    padding: 5px 0 0 25px;
+}
+.upcoming-events .timeAgoFormat,
+.upcoming-events div[id*="Location"] {
+    color: #666;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 10px;
+    line-height: 1.4;
+}
+.upcoming-events ul li .col-md-2 {
+    width: 80px;
+    margin-right: 15px;
+    float: left;
+}
+.upcoming-events ul li .col-md-10 {
+    width: calc(100% - 95px);
+    float: left;
+}
+.upcoming-events ul li .date-block {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    background: rgba(1,127,117,0.3);
+}
+.upcoming-events ul li .date-block .calendar-day {
+    display: none;
+}
+.upcoming-events ul li .date-block .calendary-number {
+    font-size: 48px;
+    line-height: 46px;
+    letter-spacing: -0.02em;
+    color: #212942;
+}
+.upcoming-events ul li .date-block .calendar-month {
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: #212942;
+}
+
+/****** most active users ******/
+
+.active-users {
+    margin-bottom: 50px;
+}
+.active-users .Content,
+.blogs .Content,
+.upcoming-events .Content {
+    border-radius: 3px;
+    background: #f2f2f2;
+    padding: 25px 0;
+}
+.active-users ul li {
+    padding: 15px 35px 15px 100px;
+    border-bottom: none;
+    margin-bottom: 0;
+    position: relative;
+}
+.active-users ul li:nth-child(odd),
+.upcoming-events .Content ul li {
+    background-color: #f8f8f8;
+}
+.active-users ul li a {
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 22px;
+}
+.active-users-button {
+    padding-top: 30px;
+    padding-left: 25px;
+}
+.active-users ul li .col-md-9 {
+    width: 100%;
+    padding: 0;
+}
+.active-users ul li .title-row .col-md-3 {
+    position: absolute;
+    left: 35px;
+    top: 15px;
+}
+.active-users ul li .content-row .col-md-3 {
+    display: none;
+}
+.HLEngagement .points-label {
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 1.2;
+    color: #8846AC;
+    text-transform: uppercase;
+    background: transparent;
+    border: none;
+    padding: 3px 0;
+}
+.HLEngagement .points-label::before {
+    padding: 2px 6px;
+    margin-right: 10px;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #8846AC;
+}
+.HLEngagement ul li:first-child .points-label::before {
+    content: '1st';
+}
+.HLEngagement ul li:nth-child(2) .points-label::before {
+    content: '2nd';
+}
+.HLEngagement ul li:nth-child(3) .points-label::before {
+    content: '3rd';
+}
+.HLEngagement ul li:nth-child(4) .points-label::before {
+    content: '4th';
+}
+.HLEngagement ul li:last-child .points-label::before {
+    content: '5th';
+}
+
+/****** technical blogs ******/
+
+.blogs {
+    margin-bottom: 90px;
+}
+.blogs .Content {
+    padding: 25px;
+}
+.blogs .HLLandingControl ul li {
+    border: none;
+    background: #fff;
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 3px;
+    position: relative;
+}
+.blogs .HLLandingControl ul li:last-child {
+    margin-bottom: 50px;
+}
+.blogs ul li .title-row .col-md-2 {
+    position: absolute;
+    bottom: -25px;
+    padding-left: 43px !important;
+    left: 20px;
+}
+.blogs ul li h3 a,
+.upcoming-events ul li h3 a {
+    color: #333;
+}
+
 /************ footer ************/
 
 #MPFooterLink,
@@ -771,6 +1195,13 @@ font-style: normal;
     }
 }
 
+@media (max-width: 992px) {
+    .row-wide div[class*="section"] {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
 @media (max-width: 991px) {
     .footer-top-row > .col-md-12 {
         flex-wrap: wrap;
@@ -827,6 +1258,26 @@ font-style: normal;
     }
     .search-bar-top {
         display: none;
+    }
+}
+
+@media (max-width: 650px) {
+    .HLDiscussions ul li,
+    .SearchResults ul li {
+        padding-bottom: 90px;
+    }
+    .HLDiscussions ul li .title-row .col-md-2,
+    .SearchResults ul li .title-row .col-md-2 {
+        bottom: 45px;
+    }
+    .HLDiscussions ul li h5,
+    .SearchResults ul li h5 {
+        bottom: 10px;
+        left: 20px;
+        right: auto;
+    }
+    .HLDiscussions ul li::before, .SearchResults ul li::before {
+        bottom: 65px;
     }
 }
 
