@@ -84,6 +84,9 @@ img {
 }
 
 /************ basics ************/
+ul {
+    margin-top: 20px;
+}
 body,
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -104,6 +107,11 @@ h2, .h2 {
     line-height: 1.25;
     color: #333;
 }
+.subheading h2 {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #D6D6D6;
+    margin-bottom: 20px;
+}
 .HLLandingControl h2,
 .HLLandingControl .heading h2,
 .small-h2 h2 {
@@ -114,6 +122,14 @@ h2, .h2 {
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 15px;
+}
+.HLLandingControl h2::before,
+.HLLandingControl .heading h2::before,
+.small-h2 h2::before {
+    font-family: RocketForum;
+    content: '\f019';
+    color: #8846AC;
+    margin-right: 8px;
 }
 h3, .h3 {
     font-weight: 700;
@@ -157,7 +173,8 @@ h6, .h6 {
     line-height: 1.5;
     color: #333;
 }
-.p-large {
+.p-large,
+.callout-panel p {
     font-size: 18px;
     line-height: 28px;
     letter-spacing: 0.25px;
@@ -185,6 +202,12 @@ input:focus {
     transition: .3s;
 }
 
+/****** margins between sections ******/
+
+.margin-bottom-45 {
+    margin-bottom: 45px;
+}
+
 /****** buttons ******/
 .btn:not(.dropdown-toggle) {
 	white-space: normal;
@@ -210,6 +233,13 @@ input:focus {
 }
 .make-buttons.large em a {
     padding: 12px 20px;
+}
+.make-buttons.large em a::after {
+    font-family: RocketForum;
+    content: '\f009';
+    margin-left: 12px;
+    font-size: 10px;
+    line-height: 16px;
 }
 .make-buttons.small em a,
 .btn.btn-sm {
@@ -298,13 +328,16 @@ input:focus {
 .btn-default:focus {
     color: #666;
 }
-.make-buttons.white em a {
+.make-buttons.white em a,
+.hero.make-buttons em a:last-child {
     color: #fff;
     border-color: #fff;
     background: transparent;
 }
 .make-buttons.white em a:hover,
-.make-buttons.white em a:focus {
+.make-buttons.white em a:focus,
+.hero.make-buttons em a:last-child:hover,
+.hero.make-buttons em a:last-child:focus {
     color: #EFEFEF;
     border-color: #EFEFEF;
 }
@@ -324,10 +357,11 @@ a[id*="Welcome_Details_ProfileLink"],
 .list-group-item-image,
 a[title="User Name Image"],
 a[oldtitle="User Name Image"],
-.member-dashboard-img a,
+.member-dashboard-img a[id*="ImageControl"],
 .dashboard-col-3 ul li .col-sm-2 a,
 .HLEngagement .Picture a,
-td.ProfilePic > a {
+td.ProfilePic > a,
+.champion .HtmlContent > strong {
     border-radius: 50%;
     overflow: hidden;
     position: relative;
@@ -369,6 +403,10 @@ a[id*="Welcome_Details_ProfileLink"] {
     width: 60px;
     height: 60px;
 }
+.member-dashboard-img a[id*="ImageControl"] {
+    width: 120px;
+    height: 120px;
+}
 
 .imgButton img,
 a[id*="ProfileImage"] img,
@@ -382,7 +420,8 @@ a[oldtitle="User Name Image"] img,
 .member-dashboard-img img,
 .dashboard-col-3 ul li .col-sm-2 a img,
 .HLEngagement .Picture a img,
-td.ProfilePic > a > img {
+td.ProfilePic > a > img,
+.champion .HtmlContent > strong img {
     position: relative;
     max-height: 100% !important;
     width: auto;
@@ -390,6 +429,59 @@ td.ProfilePic > a > img {
 
 .member-directory .member-picture {
     text-align: center;
+}
+
+/****** tags ******/
+
+.content-tags a.label-search-tag,
+.faceted-search-main .fs-result-row .label-search-tag {
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #8846AC;
+    padding: 1px 12px;
+    background: transparent;
+    position: relative;
+    border: none;
+}
+.content-tags a.label-search-tag::before,
+.faceted-search-main .fs-result-row .label-search-tag::before {
+    content: '';
+    border: 2px solid #8846ac;
+    background: transparent;
+    transform: skew(-20deg, 0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 2px;
+    z-index: -1;
+    transition: .3s;
+}
+.content-tags .glyphicon.glyphicon-user {
+    color: #8846ac;
+}
+.content-tags a.label-search-tag:hover,
+.content-tags a.label-search-tag:focus,
+.faceted-search-main .fs-result-row .label-search-tag:hover,
+.faceted-search-main .fs-result-row .label-search-tag:focus {
+    color: #fff;
+    text-decoration: none;
+}
+.content-tags a.label-search-tag:hover::before,
+.content-tags a.label-search-tag:focus::before,
+.faceted-search-main .fs-result-row .label-search-tag:hover::before,
+.faceted-search-main .fs-result-row .label-search-tag:focus::before {
+    background: #8846ac;
+    transition: .3s;
+}
+.content-tags a.label-search-tag:hover .glyphicon.glyphicon-user,
+.content-tags a.label-search-tag:focus .glyphicon.glyphicon-user,
+.faceted-search-main .fs-result-row .label-search-tag:hover .glyphicon.glyphicon-user,
+.faceted-search-main .fs-result-row .label-search-tag:focus .glyphicon.glyphicon-user {
+    color: #fff;
 }
 
 /************ header ************/
@@ -622,6 +714,404 @@ font-style: normal;
     color: #017f75;
 }
 
+/************ hero ************/
+.hero,
+.anchor-block {
+    background-color: #0d5147;
+    background-position: center right;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+}
+.hero .HtmlContent,
+.anchor-block .HtmlContent {
+    width: calc(100% - 325px);
+    background-position: right center;
+    background-image: url('https://higherlogicdownload.s3.amazonaws.com/ROCKET/c51d81c0-1ace-4639-bd70-08413968a4d5/UploadedImages/eConverse_2021/Group_702.png');
+    background-position: right center;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    padding: 80px 400px 80px calc(50% - 585px);
+    position: relative;
+}
+.hero .HtmlContent *,
+.anchor-block .HtmlContent * {
+    position: relative;
+}
+.hero h1,
+.hero h2,
+.hero h3 {
+    color: #fff;
+}
+.hero p {
+    color: #fff;
+    margin-bottom: 25px;
+}
+.hero.make-buttons em a:last-child::after {
+    content: '\f001';
+}
+
+/************ member dashboard ************/
+
+.member-dashboard {
+    background: linear-gradient(90deg, #017F75 -2.53%, #212942 100.97%);
+    position: relative;
+    padding: 50px calc(50% - 600px) 140px calc(50% - 600px);
+}
+.member-dashboard::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 500px;
+    background-size: auto 100%;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-image: url('https://higherlogicdownload.s3.amazonaws.com/ROCKET/c51d81c0-1ace-4639-bd70-08413968a4d5/UploadedImages/eConverse_2021/Group_683.png');
+}
+.member-dashboard .bottom-triangles {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.member-dashboard .bottom-triangles .HtmlContent {
+    line-height: 0;
+}
+.dashboard-inner {
+    display: flex;
+}
+.dashboard-col-1 {
+    flex-basis: 45%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.dashboard-col-2 {
+    flex-basis: 55%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/****** user details ******/
+.member-dashboard .user-details {
+    display: flex;
+    margin-bottom: 45px;
+}
+
+/*** image ***/
+
+.member-dashboard-img {
+    position: relative;
+    margin-right: 20px;
+}
+
+.member-dashboard-img a[id*="ImageControl"] {
+    border: 5px solid #fff;
+}
+.member-dashboard-img .row {
+    margin: 0;
+}
+.member-dashboard-img .col-md-12 {
+    padding: 0;
+}
+.member-dashboard-img .form-group.margin-top-small {
+    display: none;
+}
+
+/*** email content ***/
+
+.email-content a {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #389CBE;
+    border-radius: 30px;
+    color: #fff;
+    text-decoration: none;
+    padding: 1px 4px;
+}
+.email-content a i {
+    color: #212942;
+    margin-right: 3px;
+}
+.email-content a:hover,
+.email-content a:focus {
+    background: #2B84A2;
+}
+
+/*** greeting ***/
+.greeting {
+    width: calc(100% - 140px);
+}
+.greeting span {
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    display: block;
+}
+.greeting a {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+    color: #fff;
+    text-decoration: none;
+}
+.greeting a:hover,
+.greeting a:focus {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+.greeting .progress {
+    margin-top: 10px;
+    margin-bottom: 3px;
+    border: 4px solid #FFFFFF;
+    height: 30px;
+    box-shadow: none;
+    overflow: visible;
+}
+.progress {
+    border-radius: 30px;
+}
+.progress-bar-info {
+    background: #8846AC;
+    color: #fff;
+    position: relative;
+    box-shadow: none;
+    border-radius: 30px;
+}
+.progress-bar-number {
+    background: #8846AC;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+    width: 33px;
+    height: 33px;
+    position: absolute;
+    right: -17px;
+    top: -6px;
+    text-align: center;
+    line-height: 33px;
+    font-weight: 800;
+    font-size: 12px;
+    color: #fff;
+    border-radius: 50%;
+    z-index: 10;
+}
+.greeting .progress-text {
+    color: #B6F0EA;
+    opacity: 0.5;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 1.8;
+}
+
+/****** dashboard links ******/
+
+.dashboard-links {
+    display: flex;
+    flex-wrap: wrap;
+}
+.dashboard-link {
+    flex-basis: 50%;
+    margin-bottom: 10px;
+}
+.dashboard-link a {
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    padding-left: 30px;
+    text-decoration: none;
+    position: relative;
+}
+.dashboard-link a:hover,
+.dashboard-link a:focus {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+.dashboard-link a::before {
+    font-family: RocketForum;
+    color: #C9FA59;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 400;
+    font-size: 18px;
+}
+.dashboard-link.bookmark a::before {
+    content: '\f00a';
+}
+.dashboard-link.address-book a::before {
+    content: '\f00b';
+}
+.dashboard-link.badges a::before {
+    content: '\f00c';
+}
+.dashboard-link.pencil a::before {
+    content: '\f00d';
+}
+.dashboard-link.network a::before {
+    content: '\f00e';
+}
+.dashboard-link.bell a::before {
+    content: '\f00f';
+}
+
+/******* my forums ******/
+.my-forums {
+    background: #fff;
+    border-radius: 3px;
+    padding: 10px 20px;
+    position: relative;
+}
+.my-forums h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.my-forums h2 + div[id*="UpdatePanel"] {
+    display: flex;
+    margin: 20px -5px;
+    flex-wrap: wrap;
+}
+.my-forums h2 + div[id*="UpdatePanel"] > .row:first-child {
+    display: none;
+}
+.my-forums .row.rowContainer.community-list {
+    margin: 10px 5px;
+    padding: 0;
+    border: none;
+}
+.my-forums .community-list div[class*="col-md-"] {
+    padding: 0;
+}
+.my-forums .community-list .row,
+.my-forums .community-list h3 {
+    margin: 0;
+}
+.my-forums .community-list h3 a {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    color: #fff;
+    padding: 11px 20px;
+    background: #389CBE;
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-block;
+}
+.my-forums .community-list h3 a:hover,
+.my-forums .community-list h3 a:focus {
+    background: #2B84A2;
+}
+.my-forums .community-list h3 a::before {
+    font-family: RocketForum;
+    content: '\f011';
+    color: #212942;
+    margin-right: 12px;
+    font-size: 18px;
+    line-height: 18px;
+}
+.my-forums .add-community {
+    color: #389CBE;
+    font-size: 22px;
+    background: #F2F2F2;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    margin: 10px 5px;
+}
+
+/****** what's next ******/
+.whats-next,
+.dashboard-buttons {
+    position: relative;
+}
+.whats-next {
+    margin-top: 33px;
+}
+.whats-next h4 {
+    color: #fff;
+}
+.dashboard-buttons {
+    display: flex;
+    margin: 20px -5px 0 -5px;
+    flex-wrap: wrap;
+}
+.dashboard-btn {
+    margin: 5px;
+}
+
+/****** slick dots on mobile ******/
+
+.member-dashboard ul.slick-dots {
+    bottom: 30px;
+}
+.member-dashboard ul.slick-dots li button {
+    display: none;
+}
+.member-dashboard ul.slick-dots li {
+    background: #fff;
+    opacity: 0.3;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+}
+.member-dashboard ul.slick-dots li.slick-active {
+    opacity: 0.8;
+}
+
+/************ top circles ************/
+
+.top-icons > .col-md-12 {
+    display: flex;
+    margin-top: -45px;
+    margin-bottom: 30px;
+    justify-content: space-between;
+    padding-left: 0;
+    padding-right: 0;
+}
+.top-icon a {
+    border: 10px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+    text-decoration: none;
+    background: #7A808F;
+}
+.top-icon a i {
+    display: block;
+    font-size: 70px;
+    color: #C9FA59;
+    margin-bottom: 15px;
+}
+.top-icon:first-child a,
+.top-icon:last-child a {
+    background: #212942;
+    margin-top: 12px;
+}
+.top-icon:nth-child(2) a,
+.top-icon:nth-child(4) a {
+    background: #4A4F66;
+    margin-top: 6px;
+}
+.top-icon a:hover,
+.top-icon a:focus {
+    transform: scale(1.08);
+}
+
 /************ widgets ************/
 .ContentUserControl .HLLandingControl, .ContentUserControl.HLLandingControl, .ContentItemHtml .HLLandingControl, .ContentItemHtml.HLLandingControl,
 .HLLandingControl .Content, .HLLandingControl .HtmlContent {
@@ -630,20 +1120,28 @@ font-style: normal;
 }
 .HLDiscussions ul,
 .SearchResults ul,
-.HLEngagement ul {
-    margin-bottom: 5px;
+.HLEngagement ul,
+.HLMyDocuments ul {
+    margin-bottom: 20px;
     padding-top: 0;
 }
 .HLDiscussions ul li,
-.SearchResults ul li {
+.SearchResults ul li,
+.HLMyDocuments ul li {
     padding: 16px 22px 65px 35px;
     position: relative;
     border-radius: 3px;
     border: 1px solid #F2F2F2;
     margin-bottom: 15px;
 }
+.HLDiscussions ul li:last-child,
+.SearchResults ul li:last-child,
+.HLMyDocuments ul li:last-child {
+    margin-bottom: 0;
+}
 .HLDiscussions ul li::before,
-.SearchResults ul li::before {
+.SearchResults ul li::before,
+.HLMyDocuments ul li::before {
     content: '';
     position: absolute;
     border-left: 3px solid #f2f2f2;
@@ -652,11 +1150,13 @@ font-style: normal;
     left: 20px;
 }
 .HLDiscussions ul li .title-row h3,
-.SearchResults ul li .title-row h3 {
+.SearchResults ul li .title-row h3,
+.HLMyDocuments ul li .title-row h3 {
     margin-bottom: 10px;
 }
 .HLDiscussions ul li .title-row .col-md-2,
-.SearchResults ul li .title-row .col-md-2 {
+.SearchResults ul li .title-row .col-md-2,
+.HLMyDocuments ul li .title-row .col-md-2 {
     position: absolute;
     bottom: 15px;
     left: 20px;
@@ -666,7 +1166,8 @@ font-style: normal;
 }
 .HLDiscussions ul li .title-row .col-md-2 a[id*="lnkDisplay"],
 .SearchResults ul li .title-row .col-md-2 a[id*="lnkDisplay"],
-.blogs ul li .title-row .col-md-2 a[id*="lnkDisplay"] {
+.blogs ul li .title-row .col-md-2 a[id*="lnkDisplay"],
+.HLMyDocuments ul li .title-row .col-md-2 a[id*="lnkDisplay"] {
     border: 3px solid #f2f2f2;
     position: absolute;
     bottom: -3px;
@@ -676,7 +1177,8 @@ font-style: normal;
 }
 .HLDiscussions ul li .title-row .col-md-10,
 .SearchResults ul li .title-row .col-md-7,
-.blogs ul li .title-row .col-md-10 {
+.blogs ul li .title-row .col-md-10,
+.HLMyDocuments ul li .title-row .col-md-10 {
     padding: 0;
     width: 100%;
 }
@@ -685,11 +1187,16 @@ font-style: normal;
 }
 .HLDiscussions ul li .content-row .col-md-12,
 .SearchResults ul li div[id*="FoundIn"] .col-md-12,
-.SearchResults ul li .title-row .col-md-12 {
+.SearchResults ul li .title-row .col-md-12,
+.HLMyDocuments ul li .content-row .col-md-12 {
     position: static;
 }
+.HLLandingControl .ByLine a {
+    text-decoration: none;
+}
 .HLDiscussions ul li h5,
-.SearchResults ul li h5 {
+.SearchResults ul li h5,
+.HLMyDocuments ul li h5 {
     position: absolute;
     right: 25px;
     bottom: 15px;
@@ -698,7 +1205,8 @@ font-style: normal;
 }
 
 .HLDiscussions ul li h5 a,
-.SearchResults ul li h5 a {
+.SearchResults ul li h5 a,
+.HLMyDocuments ul li h5 a {
     color: #8846AC;
     font-size: 10px;
     line-height: 1.8;
@@ -714,7 +1222,9 @@ font-style: normal;
 .HLDiscussions ul li h5 a:hover,
 .HLDiscussions ul li h5 a:focus,
 .SearchResults ul li h5 a:hover,
-.SearchResults ul li h5 a:focus {
+.SearchResults ul li h5 a:focus,
+.HLMyDocuments ul li h5 a:hover,
+.HLMyDocuments ul li h5 a:focus {
     background: #8846ac;
     color: #fff;
 }
@@ -1032,8 +1542,9 @@ font-style: normal;
     padding-right: 0;
 }
 .footer-icon-row > .col-md-12 {
-    height: 65px;
+    height: 63px;
     position: relative;
+    margin-bottom: -3px;
 }
 .footer-icon-row > .col-md-12::before {
     content: '';
@@ -1083,6 +1594,9 @@ font-style: normal;
 .footer-left-column {
     flex-basis: 40%;
 }
+.footer-logo {
+    opacity: 0.4;
+}
 .footer-contact {
     flex-basis: 20%;
 }
@@ -1111,6 +1625,10 @@ font-style: normal;
     margin: 5px;
     text-decoration: none;
 }
+.footer-social a:hover,
+.footer-social a:focus {
+    opacity: 1;
+}
 .footer-links .HtmlContent {
     display: flex;
     flex-wrap: wrap;
@@ -1124,6 +1642,13 @@ font-style: normal;
     font-weight: 400;
     font-size: 16px;
 }
+.footer-links a:hover,
+.footer-links a:focus,
+.footer-attribution a:hover,
+.footer-attribution a:focus {
+    text-decoration: underline;
+    opacity: 0.8;
+}
 .footer-bottom-row .col-md-12 {
     padding: 0;
     display: flex;
@@ -1133,7 +1658,7 @@ font-style: normal;
     background: #333;
 }
 .footer-copyright {
-    flex-basis: 80%;
+    flex-basis: 75%;
     background: #000;
     position: relative;
     padding: 15px 140px 15px calc(50% - 600px);
@@ -1150,7 +1675,7 @@ font-style: normal;
     position: absolute;
 }
 .footer-attribution {
-    flex-basis: 20%;
+    flex-basis: 25%;
     padding: 15px calc(50% - 600px) 15px 55px;
 }
 .footer-attribution a {
@@ -1159,7 +1684,330 @@ font-style: normal;
     text-decoration: none;
 }
 
+/************ interior page design elements ************/
+
+/****** blockquote ******/
+
+.blockquote-section {
+    background: #212942;
+    border-radius: 3px;
+    padding: 80px;
+}
+.blockquote-section h5 {
+    color: #fff;
+}
+blockquote {
+    color: #fff;
+    font-size: 24px;
+    line-height: 30px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    position: relative;
+    margin: 0;
+}
+blockquote::before,
+blockquote::after {
+    font-family: 'Arial', sans-serif;
+    font-size: 96px;
+    line-height: 1;
+    color: #fff;
+    opacity: 0.2;
+    position: absolute;
+    vertical-align: unset;
+    margin: 0;
+}
+blockquote::before {
+    content: '\201c';
+    top: -40px;
+    left: 0;
+}
+blockquote::after {
+    content: '\201d';
+    right: 0;
+    bottom: -90px;
+}
+
+/****** divider ******/
+.divider {
+    margin-top: 40px;
+    margin-bottom: 55px;
+    height: 6px;
+    position: relative;
+}
+.divider::before {
+    content: '';
+    width: 270px;
+    border-top: 1px solid #D6D6D6;
+    position: absolute;
+    top: 0;
+    left: calc(50% - 135px);
+}
+.divider::after {
+    content: '';
+    width: 190px;
+    border-top: 1px solid #D6D6D6;
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 95px);
+}
+
+/****** callout panel ******/
+
+.callout-panel {
+    border: 1px solid #017F75;
+    border-radius: 3px;
+    background: linear-gradient(90deg, rgba(1, 127, 117, 0.1) -2.53%, rgba(33, 41, 66, 0.1) 100.97%);
+    padding: 20px 30px;
+    position: relative;
+    margin-bottom: 30px;
+}
+.callout-panel::before {
+    font-family: RocketForum;
+    content: '\f015';
+    color: #017F75;
+    font-size: 25px;
+    line-height: 1;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
+.callout-panel h4 {
+    color: #017F75;
+}
+.callout-panel p {
+    color: #212942;
+}
+
+/****** champions ******/
+.champions {
+    margin-bottom: 45px;
+    background: #F2F2F2;
+    border-radius: 3px;
+    padding: 20px 0;
+}
+.champion:nth-child(odd) {
+    background: #f8f8f8;
+}
+.champion .HtmlContent {
+    padding: 25px 35px 25px 130px;
+    position: relative;
+    min-height: 105px;
+}
+.champion .HtmlContent > strong {
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    left: 35px;
+    top: 15px;
+}
+.champion h3 {
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+.champion p {
+    margin-bottom: 0;
+}
+.champion-btn {
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+/****** gray tiles ******/
+.tile-gray .HtmlContent {
+    background: #F2F2F2;
+    border-radius: 3px;
+    padding: 25px;
+}
+.tile-gray img {
+    margin-left: -15px;
+    margin-right: -15px;
+    margin-top: -15px;
+    margin-bottom: 30px;
+    max-width: calc(100% + 30px);
+}
+.tile-gray h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+.tile-gray p:last-of-type {
+    margin-bottom: 30px;
+}
+
+/****** page titles *******/
+
+#PageTitleH1 {
+    max-width: 100%;
+    padding: 60px calc(50% - 585px) 50px calc(50% - 585px);
+    color: #fff;
+    background: linear-gradient(90deg, #017F75 -2.53%, #212942 100.97%);
+    margin-bottom: 60px !important;
+    position: relative;
+}
+#PageTitleH1::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 500px;
+    background-size: auto;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-image: url('https://higherlogicdownload.s3.amazonaws.com/ROCKET/c51d81c0-1ace-4639-bd70-08413968a4d5/UploadedImages/eConverse_2021/page-title-group.png');
+}
+.alternate-title #PageTitleH1 {
+    background: linear-gradient(270deg, #0D5147 0%, #017F74 69.79%, #429E66 100%);
+    padding-bottom: 85px;
+}
+.alternate-title #PageTitleH1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    height: 75px;
+    background-image: url('https://higherlogicdownload.s3.amazonaws.com/ROCKET/c51d81c0-1ace-4639-bd70-08413968a4d5/UploadedImages/eConverse_2021/Group_765.png');
+    background-size: auto;
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+
+/****** anchor block ******/
+
+.anchor-block {
+    margin-bottom: -65px;
+}
+.anchor-block .HtmlContent {
+    padding-bottom: 145px;
+}
+.anchor-block p {
+    font-size: 24px;
+    line-height: 30px;
+    color: #fff;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.anchor-block h2 {
+    color: #73BAB2;
+}
+.anchor-block h2::before {
+    color: #C9FA59;
+}
+.anchor-block h5 {
+    color: #fff;
+    margin-bottom: 30px;
+}
+.anchor-block blockquote {
+    margin-top: 60px;
+}
+.anchor-block.has-discussions .HtmlContent {
+    display: flex;
+    padding-right: 0;
+}
+.anchor-block.has-discussions .text-container {
+    width: 400px;
+    margin-right: 30px;
+}
+.anchor-block.has-discussions .text-container p:last-child {
+    font-size: 14px;
+    line-height: 17px;
+    color: #fff;
+    opacity: 0.8;
+}
+.anchor-block.has-discussions .text-container p:last-child a {
+    font-weight: 700;
+    opacity: 1;
+    color: #fff;
+    text-decoration: none;
+}
+.anchor-block.has-discussions .text-container p:last-child a:hover,
+.anchor-block.has-discussions .text-container p:last-child a:focus {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+.anchor-block-discussions {
+    width: 650px;
+    margin-right: -325px;
+    position: relative;
+    min-height: 250px;
+}
+.anchor-block-discussions .HLLandingControl.HLDiscussions ul {
+    width: 650px;
+    min-height: 250px;
+}
+.anchor-block-discussions .HLLandingControl.HLDiscussions ul li {
+    background: #fff;
+    border-radius: 3px;
+    padding: 20px 20px 65px 20px;
+    border: none;
+    width: 300px;
+    box-shadow: 20px 20px #C9FA59;
+    position: absolute;
+}
+.anchor-block-discussions ul li:first-child {
+    top: 0;
+    left: 0;
+}
+.anchor-block-discussions ul li:first-child::after {
+    content: '';
+    position: absolute;
+    right: 50px;
+    bottom: -37px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 25px 17px 0;
+    border-color: transparent #cafa59 transparent transparent;
+}
+.anchor-block-discussions ul li:last-child {
+    bottom: 0;
+    right: 0;
+}
+.anchor-block-discussions ul li:last-child::after {
+    content: '';
+    position: absolute;
+    left: 50px;
+    bottom: -37px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 17px 25px 0 0;
+    border-color: #cafa59 transparent transparent transparent;
+}
+.anchor-block-discussions .HLLandingControl ul li::before {
+    display: none;
+}
+.anchor-block-discussions .HLLandingControl.HLDiscussions ul li .title-row .col-md-2 {
+    background: transparent;
+    padding: 0!important;
+    bottom: -45px;
+    left: 0;
+    display: flex;
+    align-items: center;
+}
+.anchor-block-discussions .HLLandingControl.HLDiscussions ul li .title-row .col-md-2 a[id*="lnkDisplay"] {
+    border: none;
+    position: relative;
+    margin-right: 7px;
+    width: 35px;
+    height: 35px;
+}
+
 /************ responsive ************/
+
+@media (max-width: 1400px) {
+    .hero .HtmlContent,
+    .anchor-block .HtmlContent {
+        width: calc(100% - 200px);
+    }
+    .anchor-block-discussions {
+        margin-right: -200px;
+    }
+    .anchor-block.has-discussions .HtmlContent {
+        flex-wrap: wrap;
+    }
+}
 
 @media (max-width: 1230px) {
     .footer-copyright {
@@ -1177,6 +2025,10 @@ font-style: normal;
     .footer-icon-row > .col-md-12::after {
         left: calc(100% - 17px);
     }
+    .member-dashboard {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 }
 
 @media (max-width: 1200px) {
@@ -1188,6 +2040,30 @@ font-style: normal;
         bottom: auto;
         right: auto;
     }
+    .hero .HtmlContent,
+    .anchor-block .HtmlContent {
+        width: 100%;
+        padding-left: 15px;
+    }
+    .hero,
+    .anchor-block {
+        background-position-x: 800px;
+    }
+    .anchor-block.has-discussions {
+        background-position-x: 500px;
+    }
+    #PageTitleH1 {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .anchor-block.has-discussions .text-container,
+    .anchor-block-discussions {
+        width: 100%;
+        max-width: 800px;
+    }
+    .anchor-block-discussions {
+        margin-right: 0;
+    }
 }
 @media (min-width: 768px) and (max-width: 1200px) {
     .navbar-nav {
@@ -1195,8 +2071,19 @@ font-style: normal;
     }
 }
 
+@media (max-width: 1000px) {
+    .top-icons > .col-md-12 {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .top-icons .top-icon a {
+        margin: 0;
+    }
+}
+
 @media (max-width: 992px) {
-    .row-wide div[class*="section"] {
+    .row-wide div[class*="section"],
+    .interior .row-wide div[class*="section"] {
         padding-left: 15px;
         padding-right: 15px;
     }
@@ -1213,6 +2100,15 @@ font-style: normal;
     .footer-links {
         flex-basis: 100%;
         margin-top: 30px;
+    }
+    .hero,
+    .anchor-block {
+        background-image: none !important;
+    }
+    .hero .HtmlContent,
+    .anchor-block .HtmlContent {
+        background-image: none;
+        padding-right: 15px;
     }
 }
 
@@ -1232,6 +2128,20 @@ font-style: normal;
     .footer-attribution {
         flex-basis: 100%;
         padding-left: 15px;
+    }
+    #MPOuterMost .top-icons > .col-md-12 {
+        margin-top: -45px;
+        margin-bottom: 30px;
+    }
+    .anchor-block-discussions .HLLandingControl.HLDiscussions ul li {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+    }
+    .anchor-block-discussions .HLLandingControl.HLDiscussions ul li:first-child {
+        margin-bottom: 50px;
     }
 }
 
@@ -1263,20 +2173,24 @@ font-style: normal;
 
 @media (max-width: 650px) {
     .HLDiscussions ul li,
-    .SearchResults ul li {
+    .SearchResults ul li,
+    .HLMyDocuments ul li {
         padding-bottom: 90px;
     }
     .HLDiscussions ul li .title-row .col-md-2,
-    .SearchResults ul li .title-row .col-md-2 {
+    .SearchResults ul li .title-row .col-md-2,
+    .HLMyDocuments ul li .title-row .col-md-2 {
         bottom: 45px;
     }
     .HLDiscussions ul li h5,
-    .SearchResults ul li h5 {
+    .SearchResults ul li h5,
+    .HLMyDocuments ul li h5 {
         bottom: 10px;
         left: 20px;
         right: auto;
     }
-    .HLDiscussions ul li::before, .SearchResults ul li::before {
+    .HLDiscussions ul li::before, .SearchResults ul li::before,
+    .HLMyDocuments ul li::before {
         bottom: 65px;
     }
 }
@@ -1288,6 +2202,29 @@ font-style: normal;
         flex-basis: 100%;
     }
     .footer-contact {
+        margin-top: 30px;
+    }
+    .hero .HtmlContent {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    h1, .h1 {
+        font-size: 36px;
+    }
+    #Logo {
+        max-width: calc(100% - 95px);
+    }
+}
+
+@media (max-width: 400px) {
+    .dashboard-link {
+        flex-basis: 100%;
+    }
+    .member-dashboard .user-details {
+        display: block;
+    }
+    .greeting {
+        width: 100%;
         margin-top: 30px;
     }
 }

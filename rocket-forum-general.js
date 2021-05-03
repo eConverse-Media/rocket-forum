@@ -19,7 +19,7 @@ function handleEvents() {
 
 function handleWidgets() {
     // handle image and byline
-    $('.HLDiscussions.HLLandingControl ul li, .HLLandingControl.SearchResults ul li, .HLLandingControl.HLRecentBlogs ul li').each(function () {
+    $('.HLDiscussions.HLLandingControl ul li, .HLLandingControl.SearchResults ul li, .HLLandingControl.HLRecentBlogs ul li, .HLLandingControl.HLMyDocuments ul li').each(function () {
         var self = $(this),
             image = !!($(self).find('.title-row > .col-md-2').html()) ? $(self).find('.title-row > .col-md-2') : $(self).find('.title-row > .col-md-1'),
             byline = $(self).find('.ByLine');
@@ -67,6 +67,23 @@ function handleMAM() {
     $('.active-users-button').appendTo('.active-users .Content');
 }
 
+function handleChampions() {
+    $('.champion, .champion-btn').wrapAll('<div class="champions" />');
+}
+
+function handleAlternatePageTitle() {
+    $('.alternate-title').closest('#MPContentArea').addClass('alternate-title');
+    $('.alternate-title .alternate-title').removeClass('alternate-title');
+}
+
+function handleAnchorBlockDiscussions() {
+    if (!!($('.anchor-block-discussions').html())) {
+        $('.anchor-block .HtmlContent').wrapInner('<div class="text-container" />');
+        $('.anchor-block-discussions').appendTo('.anchor-block .HtmlContent');
+        $('.anchor-block').addClass('has-discussions');
+    }
+}
+
 $(function () {
     handleSearch();
     handleFooter();
@@ -74,4 +91,7 @@ $(function () {
     handleWidgets();
     handleTabbedWidgets();
     handleMAM();
+    handleChampions();
+    handleAlternatePageTitle();
+    handleAnchorBlockDiscussions();
 });
