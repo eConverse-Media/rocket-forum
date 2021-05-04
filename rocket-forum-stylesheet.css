@@ -502,6 +502,10 @@ td.ProfilePic > a > img,
 
 #Logo {
     float: left;
+    width: 235px;
+}
+#Logo .SloganText {
+    display: none;
 }
 #MPheader > .row:first-child {
     float: right;

@@ -84,6 +84,15 @@ function handleAnchorBlockDiscussions() {
     }
 }
 
+function handleCommunityList() {
+    $('.community-list div[id*="pnlViewOnly"]').each(function () {
+        var self = $(this),
+            button = '<a href="login?ReturnUrl=https%3a%2f%2fcommunity.rocketsoftware.com%2fwebdev%2fforums%2fallforums" class="btn btn-default">Join</a>';
+
+        $(self).html(button);
+    });
+}
+
 $(function () {
     handleSearch();
     handleFooter();
@@ -94,4 +103,5 @@ $(function () {
     handleChampions();
     handleAlternatePageTitle();
     handleAnchorBlockDiscussions();
+    handleCommunityList();
 });
