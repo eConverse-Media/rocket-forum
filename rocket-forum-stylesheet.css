@@ -123,9 +123,7 @@ h2, .h2 {
     text-transform: uppercase;
     margin-bottom: 15px;
 }
-.HLLandingControl h2::before,
-.HLLandingControl .heading h2::before,
-.small-h2 h2::before {
+.has-icon h2::before {
     font-family: RocketForum;
     content: '\f019';
     color: #8846AC;
@@ -230,6 +228,21 @@ input:focus {
     padding: 8px 15px;
     border-radius: 50px;
     border: 1px solid;
+}
+#MPOuterMost .btn {
+    border-radius: 50px;
+}
+#MPOuterMost .btn.btn-xs.btn-edit {
+    border-radius: 4px;
+}
+#MPOuterMost .btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+#MPOuterMost .btn-group>.btn:last-child:not(:first-child), 
+#MPOuterMost .btn-group>.dropdown-toggle:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 .make-buttons.large em a {
     padding: 12px 20px;
@@ -338,8 +351,8 @@ input:focus {
 .make-buttons.white em a:focus,
 .hero.make-buttons em a:last-child:hover,
 .hero.make-buttons em a:last-child:focus {
-    color: #EFEFEF;
-    border-color: #EFEFEF;
+    color: #ababab;
+    border-color: #ababab;
 }
 .HLLandingControl div[id*="BottomLink"] .col-md-12,
 .HLLandingControl div[id*="More"] .col-md-12 {
@@ -609,15 +622,6 @@ font-style: normal;
     padding: 6px 10px 6px 15px;
     margin-top: 5px;
 }
-#Welcome_LoginLink::after {
-    float: right;
-    margin-left: 5px;
-    color: #212942;
-    font-family: RocketForum;
-    content: '\f001';
-    font-size: 12px;
-    line-height: 16px;
-}
 
 /****** main nav ******/
 
@@ -759,7 +763,8 @@ font-style: normal;
 .member-dashboard {
     background: linear-gradient(90deg, #017F75 -2.53%, #212942 100.97%);
     position: relative;
-    padding: 50px calc(50% - 600px) 140px calc(50% - 600px);
+    padding: 50px calc(50% - 600px) 100px calc(50% - 600px);
+    margin-bottom: -30px;
 }
 .member-dashboard::before {
     content: '';
@@ -834,7 +839,7 @@ font-style: normal;
     border-radius: 30px;
     color: #fff;
     text-decoration: none;
-    padding: 1px 4px;
+    padding: 1px 7px;
 }
 .email-content a i {
     color: #212942;
@@ -969,13 +974,21 @@ font-style: normal;
     padding: 10px 20px;
     position: relative;
 }
+.my-forums .pagination {
+    display: none;
+}
 .my-forums h2 {
     margin-top: 0;
     margin-bottom: 0;
 }
+.my-forums-link {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
 .my-forums h2 + div[id*="UpdatePanel"] {
     display: flex;
-    margin: 20px -5px;
+    margin: 10px -5px;
     flex-wrap: wrap;
 }
 .my-forums h2 + div[id*="UpdatePanel"] > .row:first-child {
@@ -1018,7 +1031,7 @@ font-style: normal;
 }
 .my-forums .add-community {
     color: #389CBE;
-    font-size: 22px;
+    font-size: 26px;
     background: #F2F2F2;
     height: 40px;
     width: 40px;
@@ -1041,7 +1054,7 @@ font-style: normal;
 }
 .dashboard-buttons {
     display: flex;
-    margin: 20px -5px 0 -5px;
+    margin: 10px -5px 0 -5px;
     flex-wrap: wrap;
 }
 .dashboard-btn {
@@ -1095,11 +1108,29 @@ font-style: normal;
     text-decoration: none;
     background: #7A808F;
 }
-.top-icon a i {
+.top-icon a::before {
     display: block;
     font-size: 70px;
+    line-height: 70px;
+    font-weight: 400;
     color: #C9FA59;
     margin-bottom: 15px;
+    font-family: RocketForum;
+}
+.top-icon.multivalue a::before {
+    content: '\f016';
+}
+.top-icon.ibm-i a::before {
+    content: '\f017';
+}
+.top-icon.ibm-z a::before {
+    content: '\f018';
+}
+.top-icon.b2b-integration a::before {
+    content: '\f013';
+}
+.top-icon.see-all-forums a::before {
+    content: '\f014';
 }
 .top-icon:first-child a,
 .top-icon:last-child a {
@@ -1414,16 +1445,17 @@ font-style: normal;
 .upcoming-events ul li .date-block .calendar-day {
     display: none;
 }
-.upcoming-events ul li .date-block .calendary-number {
+.upcoming-events ul li .date-block .calendary-number span {
     font-size: 48px;
     line-height: 46px;
     letter-spacing: -0.02em;
     color: #212942;
+    display: inline-block;
 }
 .upcoming-events ul li .date-block .calendar-month {
     font-weight: 900;
     font-size: 18px;
-    line-height: 24px;
+    line-height: 1;
     text-transform: uppercase;
     color: #212942;
 }
@@ -1666,8 +1698,9 @@ font-style: normal;
     background: #000;
     position: relative;
     padding: 15px 140px 15px calc(50% - 600px);
+    clip-path: polygon(0 0, 96.5% 0, 100% 100%, 0% 100%);
 }
-.footer-copyright::after {
+/* .footer-copyright::after {
     content: '';
     width: 50px;
     height: 100%;
@@ -1677,7 +1710,7 @@ font-style: normal;
     background: #000;
     clip-path: polygon(0 0, 0% 100%, 100% 100%);
     position: absolute;
-}
+} */
 .footer-attribution {
     flex-basis: 25%;
     padding: 15px calc(50% - 600px) 15px 55px;
@@ -1697,11 +1730,12 @@ font-style: normal;
     border-radius: 3px;
     padding: 80px;
 }
-.blockquote-section h5 {
+.blockquote-section h5,
+.blockquote-section blockquote,
+.anchor-block blockquote {
     color: #fff;
 }
 blockquote {
-    color: #fff;
     font-size: 24px;
     line-height: 30px;
     background: transparent;
@@ -1996,6 +2030,51 @@ blockquote::after {
     margin-right: 7px;
     width: 35px;
     height: 35px;
+}
+
+/************ style guide ************/
+
+.style-guide tr td {
+    padding: 10px 15px;
+    vertical-align: middle;
+    border: solid;
+    border-width: 1px;
+    background-color: #FFF;
+    border-color: #EDEDED;
+}
+.style-guide th {
+    padding: 10px 15px;
+    vertical-align: middle;
+    color: inherit;
+    background-color: #FaFaFa;
+    border: 1px solid #f5f5f5;
+}
+.style-guide tr:nth-child(2n) {
+    border-bottom: 1px solid #EDEDED;
+    background: #FFF;
+}
+
+.highlight-tile {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.04), 0 0 20px 0 rgba(0,0,0,0.06);
+    padding: 20px 30px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+.highlight-tile h2,
+.highlight-tile h3 {
+    margin-top: 4px;
+}
+
+/************ interior forum pages ***********/
+
+.btn-group.bootstrap-select.padding-md-left {
+    min-width: 220px;
+}
+.bootstrap-select.btn-group .dropdown-toggle {
+    line-height: 18px;
+    padding: 7px 15px;
 }
 
 /************ responsive ************/

@@ -93,6 +93,13 @@ function handleCommunityList() {
     });
 }
 
+function handleLoginPage() {
+    if (!!($('.login-panel .ErrorMessage').text())) {
+        $('.login-panel .ErrorMessage').text('Invalid email/password combination');
+        $('.login-panel .ErrorMessage').wrap('<div class="callout-panel" />');
+    }
+}
+
 $(function () {
     handleSearch();
     handleFooter();
@@ -104,4 +111,5 @@ $(function () {
     handleAlternatePageTitle();
     handleAnchorBlockDiscussions();
     handleCommunityList();
+    handleLoginPage();
 });

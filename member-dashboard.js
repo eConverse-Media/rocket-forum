@@ -26,6 +26,7 @@ $(function () {
     $('.dashboard-btn').wrapAll('<div class="dashboard-buttons" />');
     $('.my-forums, .whats-next, .dashboard-buttons').wrapAll('<div class="dashboard-col-2" />');
     $('.my-forums h2 + div[id*="UpdatePanel"]').append('<a href="allcommunities" class="add-community"><i class="rf rf-plus"></i></a>');
+    $('.my-forums').prepend('<div class="my-forums-link make-buttons small"><em><a href="mycommunities">See all ></a></em></div>');
     
     // handle extra spaces in community name h3
     $('.my-forums .community-list').each(function () {
