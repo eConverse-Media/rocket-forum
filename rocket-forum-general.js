@@ -22,11 +22,16 @@ function handleWidgets() {
     $('.HLDiscussions.HLLandingControl ul li, .HLLandingControl.SearchResults ul li, .HLLandingControl.HLRecentBlogs ul li, .HLLandingControl.HLMyDocuments ul li').each(function () {
         var self = $(this),
             image = !!($(self).find('.title-row > .col-md-2').html()) ? $(self).find('.title-row > .col-md-2') : $(self).find('.title-row > .col-md-1'),
-            byline = $(self).find('.ByLine');
+            byline = $(self).find('.ByLine'),
+            postedIn = $(self).find('h5');
 
         $(byline).wrapInner('<div class="byline-date" />');
 
         $(image).append(byline);
+
+        $(self).append(image);
+        $(image).wrap('<div class="byline-posted-in" />');
+        $(postedIn).insertAfter(image);
     });
 }
 

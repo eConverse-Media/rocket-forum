@@ -235,12 +235,14 @@ input:focus {
 #MPOuterMost .btn.btn-xs.btn-edit {
     border-radius: 4px;
 }
-#MPOuterMost .btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
+#MPOuterMost .btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle),
+#MPOuterMost div[id*="likeRatingContainer"] > a:not(:last-child) {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
 #MPOuterMost .btn-group>.btn:last-child:not(:first-child), 
-#MPOuterMost .btn-group>.dropdown-toggle:not(:first-child) {
+#MPOuterMost .btn-group>.dropdown-toggle:not(:first-child),
+#MPOuterMost div[id*="likeRatingContainer"] > a:not(:first-child) {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
@@ -340,6 +342,8 @@ input:focus {
 .btn-default:hover,
 .btn-default:focus {
     color: #666;
+    border-color: #666;
+    background: #fff;
 }
 .make-buttons.white em a,
 .hero.make-buttons em a:last-child {
@@ -974,28 +978,43 @@ font-style: normal;
     padding: 10px 20px;
     position: relative;
 }
-.my-forums .pagination {
+.my-forums .pagination,
+.my-forums .content-tags {
     display: none;
 }
 .my-forums h2 {
     margin-top: 0;
     margin-bottom: 0;
 }
-.my-forums-link {
+.my-forums-link.make-buttons em {
+    margin: 0;
+}
+.my-forums-link.make-buttons.large em a {
+    padding: 11px 20px;
+}
+.add-forum {
     position: absolute;
     top: 10px;
     right: 20px;
 }
+.add-forum.make-buttons.small em a {
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 10px;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    padding: 5px 10px;
+}
 .my-forums h2 + div[id*="UpdatePanel"] {
     display: flex;
-    margin: 10px -5px;
+    margin: 15px -5px;
     flex-wrap: wrap;
 }
 .my-forums h2 + div[id*="UpdatePanel"] > .row:first-child {
     display: none;
 }
 .my-forums .row.rowContainer.community-list {
-    margin: 10px 5px;
+    margin: 5px;
     padding: 0;
     border: none;
 }
@@ -1163,7 +1182,7 @@ font-style: normal;
 .HLDiscussions ul li,
 .SearchResults ul li,
 .HLMyDocuments ul li {
-    padding: 16px 22px 65px 35px;
+    padding: 15px 22px 15px 35px;
     position: relative;
     border-radius: 3px;
     border: 1px solid #F2F2F2;
@@ -1189,20 +1208,26 @@ font-style: normal;
 .HLMyDocuments ul li .title-row h3 {
     margin-bottom: 10px;
 }
-.HLDiscussions ul li .title-row .col-md-2,
-.SearchResults ul li .title-row .col-md-2,
-.HLMyDocuments ul li .title-row .col-md-2 {
-    position: absolute;
-    bottom: 15px;
-    left: 20px;
+.byline-posted-in {
+    margin-top: 10px;
+    margin-left: -15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.HLDiscussions ul li .byline-posted-in .col-md-2,
+.SearchResults ul li .byline-posted-in .col-md-2,
+.HLMyDocuments ul li .byline-posted-in .col-md-2 {
     background: #F2F2F2;
     border-radius: 40px;
     padding: 3px 12px 3px 43px !important;
+    margin-top: 10px;
 }
-.HLDiscussions ul li .title-row .col-md-2 a[id*="lnkDisplay"],
-.SearchResults ul li .title-row .col-md-2 a[id*="lnkDisplay"],
-.blogs ul li .title-row .col-md-2 a[id*="lnkDisplay"],
-.HLMyDocuments ul li .title-row .col-md-2 a[id*="lnkDisplay"] {
+.HLDiscussions ul li .byline-posted-in .col-md-2 a[id*="lnkDisplay"],
+.SearchResults ul li .byline-posted-in .col-md-2 a[id*="lnkDisplay"],
+.blogs ul li .byline-posted-in .col-md-2 a[id*="lnkDisplay"],
+.HLMyDocuments ul li .byline-posted-in .col-md-2 a[id*="lnkDisplay"] {
     border: 3px solid #f2f2f2;
     position: absolute;
     bottom: -3px;
@@ -1232,11 +1257,10 @@ font-style: normal;
 .HLDiscussions ul li h5,
 .SearchResults ul li h5,
 .HLMyDocuments ul li h5 {
-    position: absolute;
-    right: 25px;
-    bottom: 15px;
-    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 0;
     font-size: 0;
+    position: relative;
 }
 
 .HLDiscussions ul li h5 a,
@@ -1246,7 +1270,7 @@ font-style: normal;
     font-size: 10px;
     line-height: 1.8;
     display: inline-block;
-    background: white;
+    background: #fff;
     border-radius: 100px;
     padding: 2px 8px;
     border: 1px solid #8846AC;
@@ -1555,7 +1579,7 @@ font-style: normal;
 .blogs .HLLandingControl ul li:last-child {
     margin-bottom: 50px;
 }
-.blogs ul li .title-row .col-md-2 {
+.blogs ul li .byline-posted-in .col-md-2 {
     position: absolute;
     bottom: -25px;
     padding-left: 43px !important;
@@ -2016,7 +2040,7 @@ blockquote::after {
 .anchor-block-discussions .HLLandingControl ul li::before {
     display: none;
 }
-.anchor-block-discussions .HLLandingControl.HLDiscussions ul li .title-row .col-md-2 {
+.anchor-block-discussions .HLLandingControl.HLDiscussions ul li .byline-posted-in .col-md-2 {
     background: transparent;
     padding: 0!important;
     bottom: -45px;
@@ -2024,7 +2048,7 @@ blockquote::after {
     display: flex;
     align-items: center;
 }
-.anchor-block-discussions .HLLandingControl.HLDiscussions ul li .title-row .col-md-2 a[id*="lnkDisplay"] {
+.anchor-block-discussions .HLLandingControl.HLDiscussions ul li .byline-posted-in .col-md-2 a[id*="lnkDisplay"] {
     border: none;
     position: relative;
     margin-right: 7px;
@@ -2251,30 +2275,6 @@ blockquote::after {
     }
     .search-bar-top {
         display: none;
-    }
-}
-
-@media (max-width: 650px) {
-    .HLDiscussions ul li,
-    .SearchResults ul li,
-    .HLMyDocuments ul li {
-        padding-bottom: 90px;
-    }
-    .HLDiscussions ul li .title-row .col-md-2,
-    .SearchResults ul li .title-row .col-md-2,
-    .HLMyDocuments ul li .title-row .col-md-2 {
-        bottom: 45px;
-    }
-    .HLDiscussions ul li h5,
-    .SearchResults ul li h5,
-    .HLMyDocuments ul li h5 {
-        bottom: 10px;
-        left: 20px;
-        right: auto;
-    }
-    .HLDiscussions ul li::before, .SearchResults ul li::before,
-    .HLMyDocuments ul li::before {
-        bottom: 65px;
     }
 }
 
