@@ -824,9 +824,14 @@ font-style: normal;
 }
 .member-dashboard .bottom-triangles {
     position: absolute;
-    bottom: 0;
+    bottom: -60px;
     left: 0;
     right: 0;
+}
+@supports (background-blend-mode: multiply) {
+    .member-dashboard .bottom-triangles {
+        bottom: 0;
+    }
 }
 .member-dashboard .bottom-triangles .HtmlContent {
     line-height: 0;
