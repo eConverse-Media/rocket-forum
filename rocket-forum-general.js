@@ -82,11 +82,23 @@ function handleAlternatePageTitle() {
 }
 
 function handleAnchorBlockDiscussions() {
-    if (!!($('.anchor-block-discussions').html())) {
+    if ($('.anchor-block').hasClass('multiple-testimonials')) {
+        $('.anchor-block.multiple-testimonials .HtmlContent').wrapInner('<div class="text-container" />');
+        $('.anchor-block blockquote').each(function () {
+            var self = $(this),
+                attribution = $(self).find('+ h5');
+
+            $(self).wrap('<div class="testimonial-quote" />');
+            $(self).closest('.testimonial-quote').append(attribution);
+        });
+        $('.testimonial-quote').wrapAll('<div class="anchor-testimonials" />');
+        $('.anchor-block .anchor-testimonials').insertAfter('.anchor-block.multiple-testimonials .text-container');
+    } else if (!!($('.anchor-block-discussions').html())) {
         $('.anchor-block .HtmlContent').wrapInner('<div class="text-container" />');
         $('.anchor-block-discussions').appendTo('.anchor-block .HtmlContent');
         $('.anchor-block').addClass('has-discussions');
     }
+
 }
 
 function handleCommunityList() {
