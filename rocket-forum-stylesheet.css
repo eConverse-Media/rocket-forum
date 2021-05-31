@@ -487,6 +487,20 @@ td.ProfilePic > a > img,
     position: relative;
     border: none;
 }
+.label-search-tag .fa-user,
+.content-tags a.label-search-tag .fa-user,
+.faceted-search-main .fs-result-row .label-search-tag .fa-user {
+    margin-top: 3px;
+    color: #8846AC;
+}
+.label-search-tag:hover .fa-user,
+.label-search-tag:focus .fa-user,
+.content-tags a.label-search-tag:hover .fa-user,
+.content-tags a.label-search-tag:focus .fa-user,
+.faceted-search-main .fs-result-row .label-search-tag:hover .fa-user,
+.faceted-search-main .fs-result-row .label-search-tag:focus .fa-user {
+    color: #fff;
+}
 .content-tags a.label-search-tag::before,
 .faceted-search-main .fs-result-row .label-search-tag::before {
     content: '';
