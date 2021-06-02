@@ -2331,6 +2331,9 @@ blockquote::after {
     .anchor-block {
         background-image: none !important;
     }
+    .hero .HtmlContent {
+        padding-right: 15px;
+    }
     .hero .HtmlContent,
     .anchor-block .HtmlContent {
         background-image: none;
