@@ -258,7 +258,8 @@ div[id*="pnlMessageViewer"] .btn[id*="lnkBackAfter"] {
 }
 #MPOuterMost .btn-group>.btn:last-child:not(:first-child), 
 #MPOuterMost .btn-group>.dropdown-toggle:not(:first-child),
-#MPOuterMost div[id*="likeRatingContainer"] > a:not(:first-child) {
+#MPOuterMost div[id*="likeRatingContainer"] > a:not(:first-child),
+#MPOuterMost .btn-group>.btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
@@ -647,9 +648,10 @@ font-style: normal;
 .Welcome .btn-group {
     position: relative;
 }
-
-#BtnShowProfile {
+#MPOuterMost .Welcome .btn-group #BtnShowProfile {
     border-radius: 50%;
+}
+#BtnShowProfile {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -1071,7 +1073,7 @@ font-style: normal;
     margin: 15px -5px;
     flex-wrap: wrap;
 }
-.my-forums h2 + div[id*="UpdatePanel"] > .row:first-child {
+.my-forums h2 + div[id*="UpdatePanel"] > .row:not(.rowContainer) {
     display: none;
 }
 .my-forums .row.rowContainer.community-list {
@@ -2205,6 +2207,16 @@ blockquote::after {
 
 .ideation-home .ideation-filter .ideation-filter-buttons {
     width: auto;
+}
+
+/************ profile pages ************/
+@media (min-width: 992px) {
+    #inboxMessageContainer + .well .col-md-10 .col-md-10 {
+        width: calc(100% - 100px);
+    }
+    #inboxMessageContainer + .well .col-md-10 .col-md-2 {
+        width: 100px;
+    }
 }
 
 /************ responsive ************/
