@@ -1826,7 +1826,7 @@ font-style: normal;
 .anchor-block blockquote {
     color: #fff;
 }
-blockquote {
+.HtmlContent blockquote {
     font-size: 24px;
     line-height: 30px;
     background: transparent;
@@ -1835,8 +1835,8 @@ blockquote {
     position: relative;
     margin: 0;
 }
-blockquote::before,
-blockquote::after {
+.HtmlContent blockquote::before,
+.HtmlContent blockquote::after {
     font-family: 'Arial', sans-serif;
     font-size: 96px;
     line-height: 1;
@@ -1846,12 +1846,12 @@ blockquote::after {
     vertical-align: unset;
     margin: 0;
 }
-blockquote::before {
+.HtmlContent blockquote::before {
     content: '\201c';
     top: -40px;
     left: 0;
 }
-blockquote::after {
+.HtmlContent blockquote::after {
     content: '\201d';
     right: 0;
     bottom: -90px;
