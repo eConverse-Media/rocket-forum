@@ -1216,6 +1216,9 @@ font-style: normal;
 .top-icon.ibm-z a::before {
     content: '\f018';
 }
+.top-icon.uniface a::before {
+    content: '\f030';
+}
 .top-icon.b2b-integration a::before {
     content: '\f013';
 }
