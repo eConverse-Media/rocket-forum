@@ -1033,6 +1033,12 @@ font-style: normal;
 .dashboard-link.bell a::before {
     content: '\f00f';
 }
+.dashboard-link.chart a::before {
+    content: '\f032';
+}
+.dashboard-link.blog a::before {
+    content: '\f031';
+}
 
 /******* my forums ******/
 .my-forums {
